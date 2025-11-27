@@ -55,9 +55,12 @@ app.get("/depositAddress/:userId", async (req, res) => {
     );
     if (result.rows.length > 0) {
       res.send(result.rows[0].deposit_address);
+    } else {
+      res.status(404).send({ error: "User not found" });
     }
   } catch (error) {
-    res.status(404).send("No user found");
+    console.error(error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
 

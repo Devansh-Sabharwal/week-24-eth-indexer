@@ -17,7 +17,7 @@ async function main() {
     return row.deposit_address;
   });
 
-  const blockNumber = 23887896; //for testing purposes
+  const blockNumber = BLOCK_NUMBER; //for testing purposes
 
   //get full tx
   const block = await provider.send("eth_getBlockByNumber", [
